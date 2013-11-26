@@ -1,0 +1,5 @@
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\bin\CryptoPrices.dll
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\bin\CryptoPrices.pdb
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.dll
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.pdb
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.csprojResolveAssemblyReference.cache
