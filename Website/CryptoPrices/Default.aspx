@@ -72,13 +72,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand">Markets</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#">BTC</a></li>
+            <li><a href="#">LTC</a></li>
+            <li><a href="#">PPC</a></li>
+            <li><a href="#">NMC</a></li>
+            <li><a href="#">WDC</a></li>
+            <li><a href="#">XPM</a></li>
+            <li><a href="#">PTS</a></li>
+            <li><a href="#">More...</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -134,17 +139,14 @@
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <asp:Panel runat="server" ID="SidebarPanelNav" CssClass="well sidebar-nav">
               <ul class="nav">
-              <li>Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li>Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li>Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><asp:Label ID="CurrentBuyLBL" runat="server" Font-Bold="true" Text="Current Buy Prices"></asp:Label></li>
+              <li><a href="http://www.coinbase.com" target="_blank">Coinbase: <asp:Label ID="CoinBaseBuyLBL" runat="server" Text="$0.00"></asp:Label></a></li>
+              <li><a href="http://www.mtgox.com" target="_blank">MtGox: <asp:Label ID="MtGoxBuyLBL" runat="server" Text="$0.00"></asp:Label></a></li>
+              <li><a href="http://www.btc-e.com" target="_blank">BTCe: <asp:Label ID="BTCeBuyLBL" runat="server" Text="$0.00"></asp:Label></a></li>
+              <li><asp:Label ID="CurrentSellLBL" runat="server" Text="Current Sell Prices" Font-Bold="true"></asp:Label></li>
+              <li><a href="http://www.coinbase.com" target="_blank">Coinbase: <asp:Label ID="CoinbaseSellLBL" runat="server" Text="$0.00"></asp:Label></a></li>
+              <li><a href="http://www.mtgox.com" target="_blank">MtGox: <asp:Label ID="MtGoxSellLBL" runat="server" Text="$0.00"></asp:Label></a></li>
+              <li><a href="http://www.btc-e.com" target="_blank">BTCe: <asp:Label ID="BTCeSellLBL" runat="server" Text="$0.00"></asp:Label></a></li>
             </ul>
           </asp:Panel>
         </div><!--/span-->

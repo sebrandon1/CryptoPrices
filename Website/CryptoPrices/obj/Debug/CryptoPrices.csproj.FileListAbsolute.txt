@@ -3,3 +3,5 @@ C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\bin\CryptoPric
 C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.dll
 C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.pdb
 C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\obj\Debug\CryptoPrices.csprojResolveAssemblyReference.cache
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\bin\Newtonsoft.Json.dll
+C:\Users\palmb\Documents\GitHub\CryptoPrices\Website\CryptoPrices\bin\Newtonsoft.Json.xml
