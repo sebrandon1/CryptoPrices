@@ -30,6 +30,7 @@ namespace CryptoPrices.Classes
         static string MtGox_BTC_USD_URL = "https://data.mtgox.com/api/2/BTCUSD/money/ticker_fast";
         static string BTCe_BTC_USD_URL = "https://btc-e.com/api/2/btc_usd/ticker";
 
+
         public double GetCoinbaseBuyRate_BTC()
         {
             double value = 0.0;
@@ -46,7 +47,7 @@ namespace CryptoPrices.Classes
                 Classes.Coinbase_BTC.buy_sell_data myCoinbase = JsonConvert.DeserializeObject<Classes.Coinbase_BTC.buy_sell_data>(myString);
 
                 // Pull the value out of the object.
-                value = Convert.ToDouble(myCoinbase.total.amount);
+                value = Math.Round(Convert.ToDouble(myCoinbase.subtotal.amount), 2);
             }
             catch
             {
@@ -67,13 +68,13 @@ namespace CryptoPrices.Classes
                 WebClient myClient = new WebClient();
 
                 // Download the serialized string.
-                string myString = myClient.DownloadString(CoinBase_BTC_Buy_URL);
+                string myString = myClient.DownloadString(CoinBase_BTC_Sell_URL);
 
                 // Store into object.
                 Classes.Coinbase_BTC.buy_sell_data myCoinbase = JsonConvert.DeserializeObject<Classes.Coinbase_BTC.buy_sell_data>(myString);
 
                 // Pull the value out of the object.
-                value = Convert.ToDouble(myCoinbase.total.amount);
+                value = Math.Round(Convert.ToDouble(myCoinbase.subtotal.amount), 2);
             }
             catch
             {
@@ -100,7 +101,7 @@ namespace CryptoPrices.Classes
                 Classes.Coinbase_BTC.spot_data myCoinbase = JsonConvert.DeserializeObject<Classes.Coinbase_BTC.spot_data>(myString);
 
                 // Pull the value out of the object.
-                value = Convert.ToDouble(myCoinbase.amount);
+                value = Math.Round(Convert.ToDouble(myCoinbase.amount), 2);
             }
             catch
             {
@@ -113,12 +114,6 @@ namespace CryptoPrices.Classes
 
         public double GetBitstampBuyRate_BTC()
         {
-            /*
-             * Function Notes:
-             * 
-             *      11-26-2013: Function created. (Brandon)
-             * */
-
             double value = 0.0;
 
             return value;
@@ -148,7 +143,7 @@ namespace CryptoPrices.Classes
                 Classes.MtGox_BTC.Gox myGox = JsonConvert.DeserializeObject<Classes.MtGox_BTC.Gox>(myString);
 
                 // Pull the value out of the object.
-                value = Convert.ToDouble(myGox.data.buy.value);
+                value = Math.Round(Convert.ToDouble(myGox.data.buy.value));
             }
             catch
             {
@@ -174,7 +169,7 @@ namespace CryptoPrices.Classes
                 Classes.MtGox_BTC.Gox myGox = JsonConvert.DeserializeObject<Classes.MtGox_BTC.Gox>(myString);
 
                 // Pull the value out of the object.
-                value = Convert.ToDouble(myGox.data.sell.value);
+                value = Math.Round(Convert.ToDouble(myGox.data.sell.value), 2);
             }
             catch
             {
@@ -187,13 +182,30 @@ namespace CryptoPrices.Classes
 
         public double GetBTCeBuyRate_BTC()
         {
-            /*
-             * Function Notes:
-             * 
-             *      11-26-2013: Function created. (Brandon)
-             * */
 
             double value = 0.0;
+
+            try
+            {
+                // Create new WebClient to do the REST call.
+                WebClient myClient = new WebClient();
+
+                // Download the serialized string.
+                string myString = myClient.DownloadString(BTCe_BTC_USD_URL);
+
+                // Deserialize the array.
+                var result = JsonConvert.DeserializeObject<dynamic>(myString);
+                double temp = result.ticker.buy;
+
+                // Pull the value out of the object.
+                value = Math.Round(temp, 2);
+
+                
+            }
+            catch
+            {
+                value = 0.0;
+            }
 
             return value;
 
@@ -203,7 +215,28 @@ namespace CryptoPrices.Classes
         {
             double value = 0.0;
 
+            try
+            {
+                // Create new WebClient to do the REST call.
+                WebClient myClient = new WebClient();
+
+                // Download the serialized string.
+                string myString = myClient.DownloadString(BTCe_BTC_USD_URL);
+
+                // Deserialize the array.
+                var result = JsonConvert.DeserializeObject<dynamic>(myString);
+                double temp = result.ticker.sell;
+
+                // Pull the value out of the object.
+                value = Math.Round(temp, 2);
+            }
+            catch
+            {
+                value = 0.0;
+            }
+
             return value;
+
         } // GetBTCeSellRate_BTC()
 
     }
