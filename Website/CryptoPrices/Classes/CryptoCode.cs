@@ -41,7 +41,6 @@ namespace CryptoPrices.Classes
                 WebClient myClient = new WebClient();
 
                 // Download the serialized string.
-
                 string myString = myClient.DownloadString(CoinBase_BTC_Buy_URL);
 
                 // Store into object.
